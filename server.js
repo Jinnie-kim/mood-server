@@ -1,6 +1,7 @@
 const express = require('express');
 const SpotifyWebApi = require('spotify-web-api-node');
 const cors = require('cors');
+const querystring = require('querystring');
 const bodyParser = require('body-parser');
 
 const app = express();
@@ -9,7 +10,6 @@ app.use(bodyParser.json());
 
 app.post('/refresh', (req, res) => {
   const refreshToken = req.body.refreshToken;
-  console.log('hi');
   const spotifyApi = new SpotifyWebApi({
     redirectUri: 'http://127.0.0.1:5173/',
     clientId: '6727280b598f42f18646ee89b28a2568',
